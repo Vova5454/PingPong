@@ -38,7 +38,7 @@ def move_ball(dx, dy):
     return dx, dy
 
 def move_computer():
-    """Make the computer move to hit the ball."""
+    """Движение кмпъютера в пределах границ экрана."""
     if ball.centerx > WIDTH//2 and ball_dx > 0:
         if computer.top > ball.bottom:
             computer.y -= comp_speed 
@@ -47,14 +47,14 @@ def move_computer():
         
 
 def back_to_middle(dx, dy):
-    """Teleport the ball back to middle."""
+    """Возращение мяча в середину."""
     ball.center = WIDTH//2-13, HEIGHT//2
     dx = rand.choice((rand.randint(-ball_speed, -8), rand.randint(8, ball_speed)))
     dy = rand.choice((rand.randint(-ball_speed, -8), rand.randint(8, ball_speed))) 
     return dx, dy
 
 def play_sound():
-    """Plays the sound which is needed to play."""
+    """Проигрывает звуки."""
     if player_score == target_score:
         win_sound.play()
     elif comp_score == target_score:
